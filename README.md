@@ -3,6 +3,12 @@
 Este proyecto sirve como playground para distintas aproximaciones de quanttrading
 que me han parecido interesantes.
 
+## Metodología
+
+Ya que es difícil encontrar un lenguaje que te dé una solución para todo con una buena relación tiempo invertido-resultados, la forma en la que planteo mis proyectos consiste en realizar todo el proceso de análisis de datos y Machine Learning en Python, por sus obvias ventajas. El foco es obtener un modelo estandarizado en **ONNX**.
+
+Luego, la implementación de la estrategia o automatización se realiza en **MQL5** (programando en C++), ya que presenta ventajas significativas en la obtención de datos y métodos especiales para símbolos y precios. Cargaremos el modelo en MQL5 para realizar las operaciones; de esta forma, aunque debemos programar la lógica operativa, las simulaciones y el backtesting se simplifican enormemente.
+
 ## Contenido
 
 ### [SimpleTreeStrategy.ipynb](./SimpleTreeStrategy.ipynb)
