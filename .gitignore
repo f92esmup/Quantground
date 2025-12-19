@@ -1,0 +1,16 @@
+# Archivos compilados de Python
+*__pycache__/
+*.pyc
+
+# Configuraciones de IDE (VS Code, PyCharm)
+.idea/
+.vscode/
+
+# Resultados y logs de QuantConnect/Lean
+storage/
+logs/
+
+# Datos
+data/
+# Archivos temporales
+*.tmp
