@@ -1,32 +1,19 @@
 # Quantground
 
-Este proyecto sirve como playground para distintas aproximaciones de quanttrading
-que me han parecido interesantes.
+Este repositorio está dedicado al desarrollo e investigación de estrategias de trading algorítmico de alta frecuencia y sistemáticas, utilizando **NautilusTrader** como motor principal.
 
-## Metodología
+## Descripción
 
-Ya que es difícil encontrar un lenguaje que te dé una solución para todo con una buena relación tiempo invertido-resultados, la forma en la que planteo mis proyectos consiste en realizar todo el proceso de análisis de datos y Machine Learning en Python, por sus obvias ventajas. El foco es obtener un modelo estandarizado en **ONNX**.
+El objetivo del proyecto es implementar estrategias robustas y extensibles. Actualmente, estamos en proceso de migración y estructuración del entorno para soportar flujos de trabajo con NautilusTrader, alejándonos de plataformas propietarias anteriores.
 
-Luego, la implementación de la estrategia o automatización se realiza en **MQL5** (programando en C++), ya que presenta ventajas significativas en la obtención de datos y métodos especiales para símbolos y precios. Cargaremos el modelo en MQL5 para realizar las operaciones; de esta forma, aunque debemos programar la lógica operativa, las simulaciones y el backtesting se simplifican enormemente.
+## Estructura del Proyecto
 
-## Contenido
+*   **`notebooks/`**: Espacio dedicado a la investigación, análisis de datos y prototipado de estrategias en Jupyter Notebooks. Aquí encontrarás el desarrollo inicial de ideas como `SimpleTreeStrategy`.
+*   **`simpletree/`**: Directorio contenedor para la lógica de la estrategia "SimpleTree". Esta estrategia implementa un enfoque híbrido donde un árbol de decisión actúa como filtro de calidad para señales generadas por reglas tradicionales.
+*   **`storage/`**: Directorio reservado para persistencia de datos, logs o resultados de backtests.
 
-### [SimpleTreeStrategy.ipynb](./SimpleTreeStrategy.ipynb)
+## Tecnologías
 
-En este notebook se utiliza un árbol de decisión simple actuando como un
-clasificador binario para filtrar las señales de una estrategia de trading
-tradicional.
-
-El proceso consiste en:
-
-1. **Generación de señales:** Se utiliza una estrategia de cruce de medias
-   móviles exponenciales (EMAs) sobre datos del S&P 500 para generar señales
-   de compra/venta.
-2. **Filtrado con Machine Learning:** Se entrena un árbol de decisión
-   (`DecisionTreeClassifier`) usando indicadores técnicos (Momentum, ROC,
-   Volumen, etc.) para predecir si la señal generada por las EMAs resultará en
-   una operación exitosa o fallida.
-3. **Optimización:** Se ajustan los hiperparámetros del árbol y se explora el
-   uso de umbrales de probabilidad para mejorar la precisión (Win Rate) del
-   sistema, comparando los resultados con la estrategia base.
+*   **NautilusTrader**: Plataforma de trading algorítmico basada en eventos, escrita en Rust y Python.
+*   **Python**: Lenguaje principal para la definición de estrategias y análisis.
 
