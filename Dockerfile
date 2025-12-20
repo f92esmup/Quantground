@@ -4,7 +4,7 @@ FROM python:3.13-bookworm
 # Evitar diálogos durante la instalación
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 1. Instalar dependencias del sistema, Node.js y herramientas para Neovim
+# 1. Instalar dependencias del sistema y herramientas para Neovim
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -18,9 +18,11 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libx11-6 \
     python3-tk \
-    # Instalación de Node.js y NPM
-    nodejs \
-    npm \
+    && rm -rf /var/lib/apt/lists/*
+
+# 1.0 Instalar última versión de Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+    && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # 1.1 Instalar JetBrainsMono Nerd Font
