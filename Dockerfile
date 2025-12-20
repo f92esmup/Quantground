@@ -63,7 +63,7 @@ RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
     && rm -rf /root/.config/nvim/.git
 
 # Configuración de entorno
-WORKDIR f92esmup/
+WORKDIR app/
 ENV QT_X11_NO_MITSHM=1
 
 CMD ["/bin/bash"]
