@@ -3,11 +3,14 @@ FROM python:3.13-bookworm
 
 # Evitar diálogos durante la instalación
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Madrid
 
 # 1. Instalar dependencias del sistema y herramientas para Neovim
 RUN apt-get update && apt-get install -y \
+    tzdata \
     curl \
     git \
+    gh\
     make \
     unzip \
     gcc \
@@ -18,7 +21,12 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libx11-6 \
     python3-tk \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && rm -rf /var/lib/apt/lists/*
+
+# 1.a Configurar Git globalmente
+RUN git config --global user.name "f92esmup-docker" \
+    && git config --global user.email "f92esmup@gmail.com"
 
 # 1.0 Instalar última versión de Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
@@ -54,7 +62,6 @@ RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
     && rm -rf /root/.config/nvim/.git
 
 # Configuración de entorno
-WORKDIR /app
 ENV QT_X11_NO_MITSHM=1
 
 CMD ["/bin/bash"]
