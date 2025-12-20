@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     ripgrep \
     fd-find \
+    fontconfig \
     # Dependencias para GUI (Matplotlib)
     libgl1-mesa-glx \
     libx11-6 \
@@ -21,6 +22,13 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/*
+
+# 1.1 Instalar JetBrainsMono Nerd Font
+RUN mkdir -p /usr/local/share/fonts/jetbrains-mono \
+    && curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip \
+    && unzip JetBrainsMono.zip -d /usr/local/share/fonts/jetbrains-mono \
+    && rm JetBrainsMono.zip \
+    && fc-cache -fv
 
 # 2. Instalar gemini-cli globalmente vía npm
 RUN npm install -g @google/gemini-cli
