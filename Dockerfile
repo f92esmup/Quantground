@@ -26,7 +26,8 @@ RUN apt-get update && apt-get install -y \
 
 # 1.a Configurar Git globalmente
 RUN git config --global user.name "f92esmup-docker" \
-    && git config --global user.email "f92esmup@gmail.com"
+    && git config --global user.email "f92esmup@gmail.com" \
+    && gh auth setup-git
 
 # 1.0 Instalar última versión de Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
