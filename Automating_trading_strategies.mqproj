@@ -50,7 +50,12 @@
       "relative_to_project":false
     },
     {
-      "path":"1_profitunity_strategy.mq5",
+      "path":"Base_strategies\\1_profitunity_strategy.mq5",
+      "compile":true,
+      "relative_to_project":true
+    },
+    {
+      "path":"Automating_trading_strategies.mq5",
       "compile":true,
       "relative_to_project":true
     }
