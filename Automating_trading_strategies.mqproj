@@ -15,7 +15,42 @@
   "files":
   [
     {
-      "path":"Automating_trading_strategies.mq5",
+      "path":"MQL5\\Include\\Trade\\Trade.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\Object.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\StdLibErr.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"MQL5\\Include\\Trade\\DealInfo.mqh",
+      "compile":false,
+      "relative_to_project":false
+    },
+    {
+      "path":"1_profitunity_strategy.mq5",
       "compile":true,
       "relative_to_project":true
     }
