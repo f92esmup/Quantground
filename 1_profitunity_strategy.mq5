@@ -356,3 +356,5 @@ string getLastFractalDirection() {
    
    return (direction_fractal);
 }
+
+//Comprobando que la sincronización del repositorio en IDE -> FORGEMQL5 -> GITHUB funciona.
