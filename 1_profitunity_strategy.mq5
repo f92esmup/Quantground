@@ -15,6 +15,18 @@
 CTrade obj_Trade; // Se usa para abrir operaciones.
 
 //+------------------------------------------------------------------+
+//| Parámetros de Entrada (Optimizables)                             |
+//+------------------------------------------------------------------+
+
+input group "--- Configuración Alligator ---"
+input int    InpJawsPeriod   = 13;        // Mandíbulas: Periodo
+input int    InpJawsShift    = 8;         // Mandíbulas: Desplazamiento
+input int    InpTeethPeriod  = 8;         // Dientes: Periodo
+input int    InpTeethShift   = 5;         // Dientes: Desplazamiento
+input int    InpLipsPeriod   = 5;         // Labios: Periodo
+input int    InpLipsShift    = 3;         // Labios: Desplazamiento
+
+//+------------------------------------------------------------------+
 //| Inicialización de variables                                      |
 //+------------------------------------------------------------------+
 // Ahora definirmos los handles de los indicadores.
@@ -55,7 +67,7 @@ int OnInit()
 //---
    
    // Inicializamos el indicador alligator
-   handle_Alligator = iAlligator(_Symbol,_Period,13,8,8,5,5,3,MODE_SMMA,PRICE_MEDIAN);
+   handle_Alligator = iAlligator(_Symbol,_Period,InpJawsPeriod,InpJawsShift,InpTeethPeriod,InpTeethShift,InpLipsPeriod,InpLipsShift,MODE_SMMA,PRICE_MEDIAN);
    
    if (handle_Alligator == INVALID_HANDLE) {
       Print("ERROR: Incapaz de inicializar el indicador alligator");
